@@ -1,1 +1,2 @@
-# mms
+# Mall Management System (MMS) 
+
