@@ -61,8 +61,7 @@ mysqli_select_db($con, 'mms');
               <ul class="list-group">
                 <?php 
 
-                for($i=0;$i<1;$i++){
-                  $row1 = mysqli_fetch_array($res1);
+                while($row1 = mysqli_fetch_array($res1)){
                   ?>
                   <li class="list-group-item"><?php printf($row1['transaction_id']);echo "<br>"; printf($row1['datee']);?></li>
                   <?php
