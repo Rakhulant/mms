@@ -37,7 +37,7 @@ mysqli_select_db($con, 'mms');
     </div>
   </div>
 
-  <div style="display:flex;justify-content: space-around;">
+  <div style="display:flex;justify-content: space-around;" class="row">
     <div class="row">
       <div class="card-body" style="margin: 150px;border: 2px solid ;border-radius: 10px;">
         <h3 style="text-align:center;">inventory</h3>
@@ -74,10 +74,17 @@ mysqli_select_db($con, 'mms');
         </div>
       </div>
 
+    
+    
+    
 
     </div>
+   
 
   </div>
+  <div class="col" style="display: flex; justify-content: center;">
+  <a href="/MMS/bill.php"><button type="submit" class="btn btn-primary"> Generate bill </button></a>
+    <div>
 </body>
 
 </html>
