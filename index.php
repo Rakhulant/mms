@@ -84,7 +84,7 @@ mysqli_select_db($con, 'mms');
 
       else if ($type == 'register') {
 
-        $q = " select * from users where username = '$name'";
+        $q = " select * from users where login_id = '$name'";
         $res = mysqli_query($con, $q);
 
         if (mysqli_num_rows($res) == 1) {
@@ -96,13 +96,13 @@ mysqli_select_db($con, 'mms');
         }
       } else if ($type == 'login') {
 
-        $q = " select * from users where username = '$name' and password = '$pass'";
+        $q = " select * from users where login_id = '$name' and passwordd = '$pass'";
         $res = mysqli_query($con, $q);
 
         if (mysqli_num_rows($res) == 0) {
           echo '<br>User credentials incorrect';
         } else {
-          $_SESSION['username'] = $name;
+          $_SESSION['login_id'] = $name;
           header('location:home.php');
         }
       }
