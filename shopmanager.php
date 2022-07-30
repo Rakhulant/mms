@@ -42,6 +42,7 @@ mysqli_select_db($con, 'mms');
       <div class="card-body" style="margin: 150px;border: 2px solid ;border-radius: 10px;">
         <h3 style="text-align:center;">inventory</h3>
         <div class="column">
+        <span class="d-block p-2 text-bg-dark">Name of shop : <?php echo $hesaru; ?></span>
           <span class="d-block p-2 text-bg-primary">Products left : <?php 
           $row2 = mysqli_fetch_assoc($res2);
           $row3 = mysqli_fetch_assoc($res3);
