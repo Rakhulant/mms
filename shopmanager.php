@@ -5,6 +5,12 @@
 session_start();
 $con = mysqli_connect('localhost', 'root', '');
 
+   
+    if(empty($_SESSION['username'])){
+        header('location:index.php');
+    }
+
+
 
 mysqli_select_db($con, 'mms');
 ?>

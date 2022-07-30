@@ -3,7 +3,9 @@
 <?php
 session_start();
 $con = mysqli_connect('localhost', 'root', '');
-
+if($_SESSION['username']){
+  header('location:shopmanager.php');
+}
 
 mysqli_select_db($con, 'mms');
 ?>
@@ -66,7 +68,7 @@ mysqli_select_db($con, 'mms');
       </div>
 
     </div>
-    
+
 
 
     <?php
@@ -84,7 +86,7 @@ mysqli_select_db($con, 'mms');
 
       else if ($type == 'register') {
 
-        $q = " select * from users where login_id = '$name'";
+        $q = " select * from users where username = '$name'";
         $res = mysqli_query($con, $q);
 
         if (mysqli_num_rows($res) == 1) {
@@ -96,14 +98,14 @@ mysqli_select_db($con, 'mms');
         }
       } else if ($type == 'login') {
 
-        $q = " select * from users where login_id = '$name' and passwordd = '$pass'";
+        $q = " select * from users where username = '$name' and password = '$pass'";
         $res = mysqli_query($con, $q);
 
         if (mysqli_num_rows($res) == 0) {
           echo '<br>User credentials incorrect';
         } else {
-          $_SESSION['login_id'] = $name;
-          header('location:home.php');
+          $_SESSION['username'] = $name;
+          header('location:shopmanager.php');
         }
       }
     }
@@ -120,4 +122,3 @@ mysqli_select_db($con, 'mms');
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </html>
-
