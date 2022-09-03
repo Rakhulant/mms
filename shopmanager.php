@@ -23,6 +23,8 @@ mysqli_select_db($con, 'mms');
   $q3 = "select sum(quantity) as minus from transaction where shop_id = (select shop_id from shop where name = '$hesaru')";
   $res2 = mysqli_query($con, $q2);
   $res3 = mysqli_query($con, $q3);
+  $q4 = "select * from goods where shop_id = (select shop_id from shop where name='$hesaru')";
+  $res4 = mysqli_query($con, $q4);
 ?>
 
 <head>
@@ -30,14 +32,21 @@ mysqli_select_db($con, 'mms');
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <title>shopmanager</title>
+  
 </head>
 
 <body>
   <div class="card">
     <div class="card-header">
       MMS
+      <div style="display:flex;float:right">
+      <a href="/MMS/bill.php"><button type="submit" class="btn btn-primary" style="margin-right:50px" > Generate bill </button></a>
+      <form method="POST" action="index.php">
+        <input type="hidden" value="logout" name="type">
+      <button type="submit" class="btn btn-primary" > LOG OUT </button>
+      </form>
     </div>
+  </div>
     <div class="card-body">
       <h5 class="card-title" style="text-align: center;">Shop managers page</h5>
     </div>
@@ -45,7 +54,7 @@ mysqli_select_db($con, 'mms');
 
   <div style="display:flex;justify-content: space-around;" class="row">
     <div class="row">
-      <div class="card-body" style="margin: 150px;border: 2px solid ;border-radius: 10px;">
+      <div class="card-body" style="margin: 100px;border: 2px solid ;border-radius: 10px;width:30vw">
         <h3 style="text-align:center;">inventory</h3>
         <div class="column">
         <span class="d-block p-2 text-bg-dark">Name of shop : <?php echo $hesaru; ?></span>
@@ -54,13 +63,20 @@ mysqli_select_db($con, 'mms');
           $row3 = mysqli_fetch_assoc($res3);
           echo $row2['plus']-$row3['minus'];
           ?> </span>
-          <span class="d-block p-2 text-bg-dark">List of products left : ----- </span>
+          <span class="d-block p-2 text-bg-dark">List of products left : <?php 
+
+      while($row4 = mysqli_fetch_array($res4)){
+            ?>
+        <li class="list-group-item"><?php echo "ID : ";printf($row4['product_id']);  echo ",     Quantity: ";printf($row4['quantity']);?></li>
+          <?php
+        }
+      ?> </span>
           <button type="button" class="btn btn-primary">Edit</button>
         </div>
       </div>
 
       <div class="row">
-        <div class="card-body" style="margin: 150px;border: 2px solid ;border-radius: 10px;">
+        <div class="card-body" style="margin: 100px;border: 2px solid ;border-radius: 10px;width:30vw">
           <h3 style="text-align:center;">sales</h3>
           <div class="column">
             <span class="d-block p-2 text-bg-primary">Todays recent sales:</span>
@@ -70,11 +86,12 @@ mysqli_select_db($con, 'mms');
 
                 while($row1 = mysqli_fetch_array($res1)){
                   ?>
-                  <li class="list-group-item"><?php printf($row1['transaction_id']);echo "<br>"; printf($row1['datee']);?></li>
+                  <li class="list-group-item"><?php echo "ID : ";printf($row1['product_id']);  echo ",     Quantity: ";printf($row1['quantity']);?></li>
                   <?php
                 }
                 ?>
               </ul>
+              
             </span>
           </div>
         </div>
@@ -88,9 +105,7 @@ mysqli_select_db($con, 'mms');
    
 
   </div>
-  <div class="col" style="display: flex; justify-content: center;">
-  <a href="/MMS/bill.php"><button type="submit" class="btn btn-primary"> Generate bill </button></a>
-    <div>
+  
 </body>
 
 </html>

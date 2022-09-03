@@ -38,7 +38,7 @@ mysqli_select_db($con, 'mms');
 
   <div style="display:flex;justify-content: space-around;">
       <div class="row">
-        <div class="card-body" style="margin: 150px;border: 2px solid ;border-radius: 10px;">
+        <div class="card-body" style="margin: 150px;border: 2px solid ;border-radius: 10px;width: 40vw">
           <h3 style="text-align:center;">details</h3>
           <div class="column">
             <span class="d-block p-2 text-bg-primary">Name : <?php echo $hesaru; ?></span>
@@ -65,6 +65,7 @@ mysqli_select_db($con, 'mms');
             </span>
           </div>
         </div>
+        
       </div>
 
 
