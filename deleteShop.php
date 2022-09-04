@@ -43,6 +43,6 @@ mysqli_select_db($con, 'mms');
     </div>
   </div>
     <h2> DELETE SUCCESSFULL </h2>
-    <button> <a href="admin.php">Back </a> </button>
+    <button class="btn"> <a href="admin.php">Back </a> </button>
 </body>
 </html>

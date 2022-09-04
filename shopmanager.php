@@ -54,7 +54,7 @@ mysqli_select_db($con, 'mms');
 
   <div style="display:flex;justify-content: space-around;" class="row">
     <div class="row">
-      <div class="card-body" style="margin: 100px;border: 2px solid ;border-radius: 10px;width:30vw">
+      <div class="card-body" style="margin: 20px 40px;border: 2px solid ;border-radius: 10px;width:30vw">
         <h3 style="text-align:center;">inventory</h3>
         <div class="column">
         <span class="d-block p-2 text-bg-dark">Name of shop : <?php echo $hesaru; ?></span>
@@ -76,7 +76,7 @@ mysqli_select_db($con, 'mms');
       </div>
 
       <div class="row">
-        <div class="card-body" style="margin: 100px;border: 2px solid ;border-radius: 10px;width:30vw">
+        <div class="card-body" style="margin: 20px 40px;border: 2px solid ;border-radius: 10px;width:30vw">
           <h3 style="text-align:center;">sales</h3>
           <div class="column">
             <span class="d-block p-2 text-bg-primary">Todays recent sales:</span>
