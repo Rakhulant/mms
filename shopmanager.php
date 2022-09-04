@@ -22,6 +22,9 @@ $user = $_SESSION['username'];
   $row = mysqli_fetch_assoc($res);
 
   $hesaru = $row['name'];
+  $shopid = $row['shop_id'];
+  $q = "select * from product natural join inventory where shop_id='$shopid'";
+  $res = mysqli_query($con,$q);
   $q1 = "select * from transaction t where t.shop_id IN(select shop_id from shop where name='$hesaru') order by t.transaction_id desc";
   $res1 = mysqli_query($con, $q1);
   $q2 = "select sum(quantity) as plus from goods where shop_id =(select shop_id from shop where name='$hesaru')";
@@ -70,9 +73,9 @@ $user = $_SESSION['username'];
           ?> </span>
           <span class="d-block p-2 text-bg-dark">List of products left : <?php 
 
-      while($row4 = mysqli_fetch_array($res4)){
+      while($row4 = mysqli_fetch_array($res)){
             ?>
-        <li class="list-group-item"><?php echo "ID : ";printf($row4['product_id']);  echo ",     Quantity: ";printf($row4['quantity']);?></li>
+        <li class="list-group-item"><?php echo ($row4['name']);  echo ",  &nbsp   Quantity: ";printf($row4['quantity']);?></li>
           <?php
         }
       ?> </span>

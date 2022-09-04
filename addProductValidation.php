@@ -17,7 +17,7 @@ mysqli_select_db($con, 'mms');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Delete Status</title>
+    <title>Add Status</title>
 </head>
 <body>
 
@@ -49,10 +49,10 @@ mysqli_select_db($con, 'mms');
       MMS
     </div>
     <div class="card-body">
-      <h5 class="card-title" style="text-align: center;">Update Status</h5>
+      <h5 class="card-title" style="text-align: center;">Add Status</h5>
     </div>
   </div>
-    <h2> DELETE SUCCESSFULL </h2>
+    <h2> ADD SUCCESSFULL </h2>
     <button class="btn"> <a href="editInventory.php">Back </a> </button>
 </body>
 </html>
