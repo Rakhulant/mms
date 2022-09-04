@@ -5,7 +5,7 @@ session_start();
 $con = mysqli_connect('localhost', 'root', '');
 
 
-  mysqli_select_db($con, 'mms');
+mysqli_select_db($con, 'mms');
 ?>
 
 <head>
@@ -72,10 +72,10 @@ $con = mysqli_connect('localhost', 'root', '');
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // collect value of input field
-      
-     
+
+
       $type = $_POST['type'];
-       if ($type == 'register') {
+      if ($type == 'register') {
         if (empty($name)) {
           echo '<br>Email is empty';
         }
@@ -83,7 +83,7 @@ $con = mysqli_connect('localhost', 'root', '');
           echo '<br>Password is empty';
         }
         $name = $_POST['Email'];
-      $pass = $_POST['pass'];
+        $pass = $_POST['pass'];
 
         $q = " select * from users where username = '$name'";
         $res = mysqli_query($con, $q);
@@ -96,7 +96,7 @@ $con = mysqli_connect('localhost', 'root', '');
           echo '<script>jsFunction(\'User registration successfull\');</script>';
         }
       } else if ($type == 'login') {
-       
+
         if (empty($name)) {
           echo '<br>Email is empty';
         }
@@ -104,33 +104,30 @@ $con = mysqli_connect('localhost', 'root', '');
           echo '<br>Password is empty';
         }
         $name = $_POST['Email'];
-      $pass = $_POST['pass'];
+        $pass = $_POST['pass'];
 
         $q = " select * from users where username = '$name' and password = '$pass'";
         $res = mysqli_query($con, $q);
 
         $store =  mysqli_fetch_array($res)['user_type'];
-        
+
 
         if (mysqli_num_rows($res) == 0) {
           echo '<br>User credentials incorrect';
         } else {
           $_SESSION['username'] = $name;
-          if($store=='admin'){
+          if ($store == 'admin') {
             header('location:admin.php');
-          }
-          else if($store=='shop_manager'){
+          } else if ($store == 'shop_manager') {
             header('location:shopmanager.php');
-          }
-          else if($store=='owner'){
+          } else if ($store == 'owner') {
             header('location:owner.php');
-          }
-          else if($store=='floor_manager'){
+          } else if ($store == 'floor_manager') {
             header('location:floor.php');
           }
         }
-      }else if($_POST['type']=='logout'){
-          $_SESSION['username']=null;
+      } else if ($_POST['type'] == 'logout') {
+        $_SESSION['username'] = null;
       }
     }
     ?>
