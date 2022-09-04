@@ -65,6 +65,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         }
         else{
             $q2 = "insert into users values ('$username', '$name', '$user_type', '$password')";
+            if($user_type=="owner"){
+              $q3 = "insert into owner (name,username) values ('$name','$username')";
+              $res_3 = mysqli_query($con, $q3);
+            }
             $res_2 = mysqli_query($con, $q2);
             header('location: added.php');
         }

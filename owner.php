@@ -6,15 +6,18 @@ session_start();
 $con = mysqli_connect('localhost', 'root', '');
 
 
+if (empty($_SESSION['username'])) {
+    header('location:index.php');
+}
 mysqli_select_db($con, 'mms');
 ?>
 
 <?php
-  $hesaru = "Owner1";
-  $q1 = "select * from owner where name='$hesaru'";
+  $username = $_SESSION['username'];
+  $q1 = "select * from owner where username='$username'";
   $res1 = mysqli_query($con, $q1);
   $row1 = mysqli_fetch_assoc($res1);
-  $q2 = "select * from shop where owner_id = (select owner_id from owner where name='$hesaru')";
+  $q2 = "select * from shop where owner_id = (select owner_id from owner where username='$username')";
   $res2 = mysqli_query($con, $q2);
 ?>
 
@@ -30,6 +33,12 @@ mysqli_select_db($con, 'mms');
   <div class="card">
     <div class="card-header">
       MMS
+      <div style="display:flex;float:right">
+      <form method="POST" action="index.php">
+        <input type="hidden" value="logout" name="type">
+      <button type="submit" class="btn btn-primary" > LOG OUT </button>
+      </form>
+    </div>
     </div>
     <div class="card-body">
       <h5 class="card-title" style="text-align: center;">Owner's page</h5>
@@ -41,14 +50,16 @@ mysqli_select_db($con, 'mms');
         <div class="card-body" style="margin: 150px;border: 2px solid ;border-radius: 10px;width: 40vw">
           <h3 style="text-align:center;">details</h3>
           <div class="column">
-            <span class="d-block p-2 text-bg-primary">Name : <?php echo $hesaru; ?></span>
+            <span class="d-block p-2 text-bg-primary">Name : <?php echo $row1['name']; ?></span>
             <span class="d-block p-2 text-bg-dark">ID : <?php 
             echo $row1['owner_id']?> </span>
             <span class="d-block p-2 text-bg-dark">Address : <?php 
             echo $row1['address']?> </span>
             <span class="d-block p-2 text-bg-dark">Phone : <?php 
             echo $row1['phone']?> </span>
-            <span class="d-block p-2 text-bg-primary">List of shops of <?php echo $hesaru ?>: </span>
+            <span class="d-block p-2 text-bg-dark">Email : <?php 
+            echo $username ?> </span>
+            <span class="d-block p-2 text-bg-primary">List of shops : </span>
             <?php 
 
                 while( $row2 = mysqli_fetch_array($res2) ){

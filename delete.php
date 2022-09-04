@@ -26,6 +26,11 @@ mysqli_select_db($con, 'mms');
   if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $username=$_POST['username'];
     $q = "delete from users where username='$username'";
+    $user_type = $_SESSION['user_type'];
+    if($user_type == 'owner'){
+      $q2 = "delete from owner where username='$username'";
+      $res2 = mysqli_query($con, $q2);
+    }
 
     $res = mysqli_query($con, $q);
   }

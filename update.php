@@ -27,7 +27,14 @@ mysqli_select_db($con, 'mms');
     $username=$_POST['username'];
     $name = $_POST['name'];
     $password = $_POST['password'];
+    $user_type = $_SESSION['user_type'];
+    
     $q = "update users set name='$name',password='$password' where username='$username'";
+
+    if($user_type=="owner"){
+      $q3 = "update owner set name='$name' where username='$username'";
+      $res_3 = mysqli_query($con, $q3);
+    }
 
     $res = mysqli_query($con, $q);
   }

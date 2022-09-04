@@ -46,7 +46,7 @@ mysqli_select_db($con, 'mms');
     <th>Email</th>
     <th>Action</th>
   </tr>
-  <?php  
+  <?php 
   while($row1 = mysqli_fetch_array($res1)){
   ?>
   <tr><form method="POST" action="edit.php">
