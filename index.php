@@ -26,7 +26,7 @@ $con = mysqli_connect('localhost', 'root', '');
     }
   </script>
 
-  <div class="card shadow p-5 mt-5 bg-white rounded" style="margin: auto;width: 70vw">
+  <div class="card shadow p-5 mt-5 bg-white rounded" style="margin: auto;width: 40vw">
     <h1 style="text-align: center;width: max-content;margin: auto ">Welcome to MMS</h1>
 
     <div class="row">
@@ -49,7 +49,7 @@ $con = mysqli_connect('localhost', 'root', '');
       </div>
 
       <!-- Register Form -->
-      <div class="col">
+      <!-- <div class="col">
         <form method="POST" action="">
           <div class="form-group mt-4">
             <input type="hidden" name="type" value="register">
@@ -63,7 +63,7 @@ $con = mysqli_connect('localhost', 'root', '');
           </div>
           <button type="submit" class="btn btn-primary">Register</button>
         </form>
-      </div>
+      </div> -->
 
     </div>
 
