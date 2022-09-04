@@ -27,10 +27,7 @@ $user = $_SESSION['username'];
   $res = mysqli_query($con,$q);
   $q1 = "select * from transaction t where t.shop_id IN(select shop_id from shop where name='$hesaru') order by t.transaction_id desc";
   $res1 = mysqli_query($con, $q1);
-  $q2 = "select sum(quantity) as plus from goods where shop_id =(select shop_id from shop where name='$hesaru')";
-  $q3 = "select sum(quantity) as minus from transaction where shop_id = (select shop_id from shop where name = '$hesaru')";
-  $res2 = mysqli_query($con, $q2);
-  $res3 = mysqli_query($con, $q3);
+ 
   $q4 = "select * from goods where shop_id = (select shop_id from shop where name='$hesaru')";
   $res4 = mysqli_query($con, $q4);
 ?>
@@ -66,11 +63,7 @@ $user = $_SESSION['username'];
         <h3 style="text-align:center;">inventory</h3>
         <div class="column">
         <span class="d-block p-2 text-bg-dark">Name of shop : <?php echo $hesaru; ?></span>
-          <span class="d-block p-2 text-bg-primary">Products left : <?php 
-          $row2 = mysqli_fetch_assoc($res2);
-          $row3 = mysqli_fetch_assoc($res3);
-          echo $row2['plus']-$row3['minus'];
-          ?> </span>
+        
           <span class="d-block p-2 text-bg-dark">List of products left : <?php 
 
       while($row4 = mysqli_fetch_array($res)){
