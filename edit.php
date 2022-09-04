@@ -59,7 +59,7 @@ else{
   <div class="form-group row">
     <label for="staticEmail" class="col-sm-2 col-form-label">User Type</label>
     <div class="col-sm-10">
-      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $qarr['user_type'] ?>">
+      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $qarr['user_type']; $_SESSION['user_type'] = $qarr['user_type'];?>">
     </div>
   </div>
   <div class="form-group row">
