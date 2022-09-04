@@ -16,7 +16,12 @@ mysqli_select_db($con, 'mms');
 ?>
 
 <?php
-  $hesaru = "Dominos";
+$user = $_SESSION['username'];
+  $q = "select * from shop where manager_id='$user'";
+  $res = mysqli_query($con,$q);
+  $row = mysqli_fetch_assoc($res);
+
+  $hesaru = $row['name'];
   $q1 = "select * from transaction t where t.shop_id IN(select shop_id from shop where name='$hesaru') order by t.transaction_id desc";
   $res1 = mysqli_query($con, $q1);
   $q2 = "select sum(quantity) as plus from goods where shop_id =(select shop_id from shop where name='$hesaru')";
@@ -71,7 +76,10 @@ mysqli_select_db($con, 'mms');
           <?php
         }
       ?> </span>
-          <button type="button" class="btn btn-primary">Edit</button>
+      <form method="POST" action="editInventory.php">
+        <input type="hidden" value="<?php echo $row['shop_id']; ?>" name="shopid">
+          <button type="submit" class="btn btn-primary">Edit</button>
+      </form>
         </div>
       </div>
 

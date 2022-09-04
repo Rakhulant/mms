@@ -16,6 +16,12 @@ $con = mysqli_connect('localhost', 'root', '');
   <title>MMS</title>
 </head>
 
+<style>
+  body{
+    background-image: url('leaves.png');
+  }
+</style>
+
 <body>
 
   <script type="text/javascript">
