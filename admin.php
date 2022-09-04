@@ -87,7 +87,10 @@ $res2 = mysqli_query($con, $q2);
 
                 while($row2 = mysqli_fetch_array($res2)){
                   ?>
-                  <li class="list-group-item"><?php echo $row2['name']; ?><button type="button" style="display:flex;float:right;" class="btn btn-primary">Edit</button></li>
+                  <form method="POST" action="editShop.php">
+                    <input name="shopid" type="hidden" value="<?php echo $row2['shop_id']; ?>">
+                  <li class="list-group-item"><?php echo $row2['name']; ?><button type="submit" style="display:flex;float:right;" class="btn btn-primary">Edit</button></li>
+                  </form>
                   <?php
                 }
                 ?>

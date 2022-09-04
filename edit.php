@@ -75,8 +75,8 @@ else{
       <input type="password" name='password' class="form-control" id="inputPassword" placeholder="Password" value="<?php echo $qarr['password'] ?>">
     </div>
   </div>
-  <input type="submit" form="delete" value="Delete User">
-  <input type="submit" value="Update">
+  <button class="btn btn-danger" type="submit" form="delete" >Delete User</button>
+  <button class="btn btn-primary" type="submit" >Update</button>
 
     </form>
 
