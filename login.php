@@ -38,14 +38,13 @@ body {
 </style>
 </head>
 <body>
-
 <video autoplay muted loop id="myVideo">
-  <source src="video.png" type="video/mp4">
+  <source src="video1.png" type="video/mp4">
   Your browser does not support HTML5 video.
 </video>
 
 
-<body>
+
 
   <script type="text/javascript">
     console.log("hello");
@@ -54,9 +53,12 @@ body {
       alert(error);
     }
   </script>
+  
+  
   <div style="height:100px;"></div>
-  <div class="card shadow p-5 mt-5 bg-white rounded" style="margin: auto;width: 40vw;">
-    <h1 style="text-align: center;width: max-content;margin: auto ">Welcome to MMS</h1>
+  
+  <div class="card shadow p-5 mt-5 bg-white rounded" style="margin: auto;width: 30vw;opacity: 0.6;border-radius: 15px; ">
+  <h1 style="text-align: center;width: max-content;margin: auto; ">Welcome to MMS</h1>
 
     <div class="row" >
 
@@ -73,7 +75,8 @@ body {
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" name="pass" id="exampleInputPassword1" placeholder="Password">
           </div>
-          <button type="submit" class="btn btn-primary" style="margin-left: 155px;width:200px">Login</button>
+          <div style="height:20px;"></div>
+          <button type="submit" class="btn btn-primary" style="margin-left: 75px;width:200px">Login</button>
         </form>
       </div>
 
@@ -126,20 +129,15 @@ body {
         }
       } else if ($type == 'login') {
        
-        if (empty($name)) {
-          echo '<br>Email is empty';
-        }
-        if (empty($pass)) {
-          echo '<br>Password is empty';
-        }
         $name = $_POST['Email'];
       $pass = $_POST['pass'];
 
         $q = " select * from users where username = '$name' and password = '$pass'";
         $res = mysqli_query($con, $q);
 
+        if (mysqli_num_rows($res) != 0) {
         $store =  mysqli_fetch_array($res)['user_type'];
-        
+        }
 
         if (mysqli_num_rows($res) == 0) {
           echo '<br>User credentials incorrect';
