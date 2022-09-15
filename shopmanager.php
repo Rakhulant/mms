@@ -7,7 +7,7 @@ $con = mysqli_connect('localhost', 'root', '');
 
    
     if(empty($_SESSION['username'])){
-        header('location:index.php');
+        header('location:login.php');
     }
 
 
@@ -54,7 +54,7 @@ $user = $_SESSION['username'];
       MMS
       <div style="display:flex;float:right">
       <a href="/MMS/bill.php"><button type="submit" class="btn btn-primary" style="margin-right:50px" > Generate bill </button></a>
-      <form method="POST" action="index.php">
+      <form method="POST" action="login.php">
         <input type="hidden" value="logout" name="type">
       <button type="submit" class="btn btn-primary" > LOG OUT </button>
       </form>

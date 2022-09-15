@@ -17,11 +17,33 @@ $con = mysqli_connect('localhost', 'root', '');
 </head>
 
 <style>
-  body{
-    background-image: url('wooden.png');
-    background-size: cover;
-  }
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  font-size: 17px;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
 </style>
+</head>
+<body>
+
+<video autoplay muted loop id="myVideo">
+  <source src="video.png" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
 
 <body>
 
@@ -32,11 +54,11 @@ $con = mysqli_connect('localhost', 'root', '');
       alert(error);
     }
   </script>
-
-  <div class="card shadow p-5 mt-5 bg-white rounded" style="margin: auto;width: 40vw">
+  <div style="height:100px;"></div>
+  <div class="card shadow p-5 mt-5 bg-white rounded" style="margin: auto;width: 40vw;">
     <h1 style="text-align: center;width: max-content;margin: auto ">Welcome to MMS</h1>
 
-    <div class="row">
+    <div class="row" >
 
       <!-- Login Form -->
       <div class="col">
@@ -51,7 +73,7 @@ $con = mysqli_connect('localhost', 'root', '');
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" name="pass" id="exampleInputPassword1" placeholder="Password">
           </div>
-          <button type="submit" class="btn btn-primary">Login</button>
+          <button type="submit" class="btn btn-primary" style="margin-left: 155px;width:200px">Login</button>
         </form>
       </div>
 

@@ -7,7 +7,7 @@ $con = mysqli_connect('localhost', 'root', '');
 
 
 if (empty($_SESSION['username'])) {
-  header('location:index.php');
+  header('location:login.php');
 }
 mysqli_select_db($con, 'mms');
 ?>
@@ -43,7 +43,7 @@ $res3 = mysqli_query($con, $q3);
     <div class="card-header">
       MMS
       <div style="display:flex;float:right">
-        <form method="POST" action="index.php">
+        <form method="POST" action="login.php">
           <input type="hidden" value="logout" name="type">
           <button type="submit" class="btn btn-primary"> LOG OUT </button>
         </form>
