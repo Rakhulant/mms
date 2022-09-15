@@ -78,35 +78,37 @@ $res3 = mysqli_query($con, $q3);
           <?php
           }
           ?>
-          <span class="d-block p-2 text-bg-primary" style="padding: top 30px;">Stats of shops: </span>
+          <span class="d-block p-2 text-bg-primary" style="padding: top 30px;">This weeks stats of shop: </span>
           <span class="d-block p-2 text-bg-dark">
 
             <table style="margin:20px auto ;width:max-content;">
               <tr>
                 <th>Name</th>
-                <th>ShopId</th>
-                <th>This weeks topline</th>
+                <th>Top Line</th>
+                <th>Bottom Line</th>
               </tr>
               <?php
               while ($row3 = mysqli_fetch_array($res3)) {
               ?>
                 <tr>
                   <td><?php echo $row3['name'] ?></td>
-                  <td><?php echo $row3['shop_id'] ?></td>
                   <td>
                   <?php 
                   $q4 = "select * from transaction where shop_id='$row3[shop_id]'";
                   $res4 = mysqli_query($con, $q4);
                   $sum=0;
-                  while ($row4 = mysqli_fetch_array($res4)){
+                  $profit = 0;
+                while ($row4 = mysqli_fetch_array($res4)){
                     $q5 = "select * from product where product_id='$row4[product_id]'";
                     $res5 = mysqli_query($con, $q5);
                     $row5 = mysqli_fetch_array($res5);
                     $sum += $row4['quantity']*$row5['s_price'];
+                    $profit += ( ($row4['quantity']*$row5['s_price'])-($row4['quantity']*$row5['price']) );
                  }
                   echo $sum; 
                   ?> 
                   </td>
+                  <td><?php echo $profit; ?></td>
                 </tr>
               <?php } ?>
             </table>

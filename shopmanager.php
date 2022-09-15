@@ -40,8 +40,16 @@ $user = $_SESSION['username'];
   
 </head>
 
+<style>
+  .heading{
+    background-image: url('wooden.png');
+    background-size: cover;
+  }
+</style>
+
 <body>
   <div class="card">
+    <div class="heading" style="height: 60px;">
     <div class="card-header">
       MMS
       <div style="display:flex;float:right">
@@ -52,16 +60,17 @@ $user = $_SESSION['username'];
       </form>
     </div>
   </div>
-    <div class="card-body">
+</div>
+    <div class="card-body" style="background-color:	 #e6e6e6">
       <h5 class="card-title" style="text-align: center;">Shop managers page</h5>
     </div>
   </div>
 
-  <div style="display:flex;justify-content: space-around;" class="row">
+  <div style="display:flex;justify-content: space-around;padding:60px;" class="row" >
     <div class="row">
-      <div class="card-body" style="margin: 20px 40px;border: 2px solid ;border-radius: 10px;width:30vw">
+      <div class="card-body" style="margin: 20px 40px;border: 2px solid ;border-radius: 10px;width:30vw;align-items:center">
         <h3 style="text-align:center;">inventory</h3>
-        <div class="column">
+        <div class="column" style="align-items:center">
         <span class="d-block p-2 text-bg-dark">Name of shop : <?php echo $hesaru; ?></span>
         
           <span class="d-block p-2 text-bg-dark">List of products left : <?php 
@@ -73,8 +82,8 @@ $user = $_SESSION['username'];
         }
       ?> </span>
       <form method="POST" action="editInventory.php">
-        <input type="hidden" value="<?php echo $row['shop_id']; ?>" name="shopid">
-          <button type="submit" class="btn btn-primary">Edit</button>
+        <input type="hidden" value="<?php echo $row['shop_id']; ?>" name="shopid" style="align:center">
+          <button type="submit" class="btn btn-primary" >Edit</button>
       </form>
         </div>
       </div>

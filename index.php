@@ -18,7 +18,8 @@ $con = mysqli_connect('localhost', 'root', '');
 
 <style>
   body{
-    background-image: url('leaves.png');
+    background-image: url('wooden.png');
+    background-size: cover;
   }
 </style>
 
