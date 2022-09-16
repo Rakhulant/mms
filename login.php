@@ -39,7 +39,7 @@ body {
 </head>
 <body>
 <video autoplay muted loop id="myVideo">
-  <source src="video1.png" type="video/mp4">
+  <source src="video.png" type="video/mp4">
   Your browser does not support HTML5 video.
 </video>
 
@@ -57,7 +57,7 @@ body {
   
   <div style="height:100px;"></div>
   
-  <div class="card shadow p-5 mt-5 bg-white rounded" style="margin: auto;width: 30vw;opacity: 0.6;border-radius: 15px; ">
+  <div class="card shadow p-5 mt-5 bg-white rounded" style="margin: auto;width: 30vw;opacity:100%;border-radius: 15px; ">
   <h1 style="text-align: center;width: max-content;margin: auto; ">Welcome to MMS</h1>
 
     <div class="row" >
