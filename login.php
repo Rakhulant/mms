@@ -147,7 +147,7 @@ body {
             header('location:admin.php');
           }
           else if($store=='shop_manager'){
-            header('location:shopmanager.php');
+            header('location:dashboard.php');
           }
           else if($store=='owner'){
             header('location:owner.php');

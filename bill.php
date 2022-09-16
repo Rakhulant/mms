@@ -5,20 +5,56 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+ 
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <!-- Bootstrap Css -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <script src="/MMS/bill.js"></script>
-  <title>owner</title>
+  <link href="assets/css/style.css" rel="stylesheet">
+  <title>Billing</title>
 </head>
+<?php
+session_start();
+$con = mysqli_connect('localhost', 'root', '');
 
+
+if (empty($_SESSION['username'])) {
+    header('location:login.php');
+}
+
+
+
+
+mysqli_select_db($con, 'mms');
+?>
 <body>
-  <div class="card">
-    <div class="card-header">
-      MMS
-    </div>
-    <div class="card-body">
-      <h5 class="card-title" style="text-align: center;">Bill</h5>
-    </div>
-  </div>
 
+<?php
+    $user = $_SESSION['username'];
+    $q = "select * from shop where manager_id='$user'";
+    $res = mysqli_query($con, $q);
+    $row = mysqli_fetch_assoc($res);
+    $q = "select * from users where username='$user'";
+    $res = mysqli_query($con, $q);
+    $row = mysqli_fetch_assoc($res);
+    ?>
+
+<header id="header" class="header fixed-top d-flex align-items-center">
+
+<div class="d-flex align-items-center justify-content-between">
+    <a href="dashboard.php" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">MMS</span>
+    </a>
+</div><!-- End Logo -->
+
+
+</header><!-- End Header -->
+
+<main id="main" class="main">
+  
   <div class="container">
     <div class="row clearfix">
       <div class="col-md-12">
@@ -35,9 +71,9 @@
           <tbody>
             <tr id='addr0'>
               <td>1</td>
-              <td><input type="text" name='product' id="pro" value="<?php $qty; ?>" placeholder='Enter Product Name' class="form-control" /></td>
+              <td><input type="text" name='term' id="term" value="<?php $qty; ?>" placeholder='Enter Product Name' class="form-control" /></td>
               <td><input type="number" name='qty[]' placeholder='Enter Qty' class="form-control qty" step="0" min="0" /></td>
-              <td><input type="number" name='price[]' placeholder='Enter Unit Price' class="form-control price" step="0.00" min="0" /></td>
+              <td><input type="number" name='price[]' placeholder='Unit Price' class="form-control price" step="0.00" min="0" readonly/></td>
               <td><input type="number" name='total[]' placeholder='0.00' class="form-control total" readonly /></td>
             </tr>
             <tr id='addr1'></tr>
@@ -83,4 +119,24 @@
       </div>
     </div>
   </div>
+</main>
+  <!-- Script -->
+
+  <script type="text/javascript">
+  $(function() {
+     $( "#term" ).autocomplete({
+       source: 'ajax-db-search.php',
+     });
+  });
+</script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ 
+ <!-- jQuery UI -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+ <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+ <script src="assets/js/main.js"></script>
+
+ <!-- Bootstrap Css -->
+ <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+ 
 </body>

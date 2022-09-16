@@ -23,6 +23,7 @@ $user = $_SESSION['username'];
 
   $hesaru = $row['name'];
   $shopid = $row['shop_id'];
+  $_SESSION['shop_id'] = $shopid;
   $q = "select * from product natural join inventory where shop_id='$shopid'";
   $res = mysqli_query($con,$q);
   $q1 = "select * from transaction t where t.shop_id IN(select shop_id from shop where name='$hesaru') order by t.transaction_id desc";
