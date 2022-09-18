@@ -144,7 +144,7 @@ body {
         } else {
           $_SESSION['username'] = $name;
           if($store=='admin'){
-            header('location:admin.php');
+            header('location:admin/admins.php');
           }
           else if($store=='shop_manager'){
             header('location:dashboard.php');

@@ -34,7 +34,7 @@ mysqli_select_db($con, 'mms');
       MMS
     </div>
     <div class="card-body row">
-    <button class="btn"> <a href="admin.php">Back </a> </button>
+    <button class="btn"> <a href="admin/admins.php">Back </a> </button>
       <h5 class="card-title" style="text-align: center;margin:auto;">Display Users</h5>
     </div>
   </div>
