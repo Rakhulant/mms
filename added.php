@@ -31,6 +31,6 @@ mysqli_select_db($con, 'mms');
     </div>
   </div>
     <h2> USER ADDED SUCCESSFULLY </h2>
-    <button> <a href="admin.php">Back </a> </button>
+    <button> <a href="admin/admins.php">Back </a> </button>
 </body>
 </html>
