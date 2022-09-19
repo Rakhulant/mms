@@ -154,7 +154,7 @@ $res2 = mysqli_query($con, $q2);
         <div class="card-body" style="margin: 100px;border: 2px solid ;border-radius: 10px;width:30vw">
             <h3 style="text-align:center;">all shop details</h3>
             <div class="column">
-                <form method="POST" action="">
+                <form method="POST" action="#about">
                 <span class="d-block p-2 text-bg-dark">Select floor :
                     <select name="floors" onchange="this.form.submit()" action="" >
                     <?php 
