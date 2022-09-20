@@ -13,7 +13,7 @@ $(document).ready(function(){
 		calc();
 	});
 	
-	$('#tab_logic tbody').on('keyup change',function(){
+	$('#tab_logic').on('keyup change',function(){
 		calc();
 	});
 	$('#tax').on('keyup change',function(){
@@ -25,7 +25,7 @@ $(document).ready(function(){
 
 function calc()
 {
-	$('#tab_logic tbody tr').each(function(i, element) {
+	$('#tab_logic').each(function(i, element) {
 		var html = $(this).html();
 		if(html!='')
 		{
