@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
+
 <style>
 table {
   width: 100%;
@@ -14,8 +12,6 @@ table, td, th {
 
 th {text-align: left;}
 </style>
-</head>
-<body>
 
 <?php
 session_start();
@@ -41,11 +37,9 @@ while($row = mysqli_fetch_array($result)) {
   echo "<tr>";
   echo "<td>" . $row['name'] . "</td>";
   echo "<td><input  type='number' name='price[]' value=".$row['s_price']." placeholder='Unit Price' class='form-control price' step='0.00' min='0' readonly/></td>";
-  echo "<td> <input type='number' id='qty' name='qty[]' placeholder='Enter Qty' class='form-control qty' step='0' min='0' /> </td>";
+  echo "<td> <input type='number' id='qty' name='qty[]' placeholder='Enter Qty' value='1' class='form-control qty' step='0' min='0' /> </td>";
   echo "<td><input type='number' name='total[]' placeholder='0.00' class='form-control total' readonly /></td>";
   echo "</tr>";
 }
 mysqli_close($con);
 ?>
-</body>
-</html>

@@ -11,7 +11,7 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
   <!-- Bootstrap Css -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-  <script src="/MMS/bill.js"></script>
+  <script src="bill.js"></script>
   <link href="assets/css/style.css" rel="stylesheet">
   <title>Billing</title>
 </head>
@@ -74,15 +74,15 @@ mysqli_select_db($con, 'mms');
         }
       }
 
-      function quantity(num){
+      function quantity(num) {
         document.getElementsById("qty").innerHTML = num;
       }
     </script>
-
-    <div class="container">
+<input type="text" name='term' id="term" value="<?php $qty; ?>" onchange="showUser(document.getElementById('term').value)" placeholder='Enter Product Name' class="form-control" />
+    <!-- <div class="container">
       <div class="row clearfix">
         <div class="col-md-12">
-          <table class="table table-bordered table-hover" >
+          <table class="table table-bordered table-hover">
             <thead>
               <tr>
                 <th class="text-center"> # </th>
@@ -101,29 +101,30 @@ mysqli_select_db($con, 'mms');
                   <td><input id="s_p" type="number" name='price[]' value="<?php $row1['price']; ?>" placeholder='Unit Price' class="form-control price" step="0.00" min="0" /></td>
                   <td><input type="number" name='total[]' placeholder='0.00' class="form-control total" readonly /></td>
                 </form>
-                <div >
-                  <table id="tab_logic" class="table table-bordered table-hover">
-                    <tr>
-                      <th>Name</th>
-                      <th>Price</th>
-                      <th>Quantity</th>
-                      <th>Total</th>
-                    </tr>
-                  </table>
-                </div>
+
               </tr>
               <tr id='addr1'></tr>
             </tbody>
           </table>
         </div>
+      </div> -->
+      <div>
+        <table id="tab_logic" class="table table-bordered table-hover">
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+        </table>
       </div>
 
-      <div class="row clearfix">
+      <!-- <div class="row clearfix">
         <div class="col-md-12">
           <button id="add_row" class="btn btn-default pull-left">Add Row</button>
           <button id='delete_row' class="pull-right btn btn-default">Delete Row</button>
         </div>
-      </div>
+      </div> -->
 
       <div class="row clearfix" style="margin-top:20px">
         <div class="pull-right col-md-4">

@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
     var i=1;
     $("#add_row").click(function(){b=i-1;
@@ -23,9 +24,13 @@ $(document).ready(function(){
 
 });
 
+setInterval(calc, 1000);
+
 function calc()
+
 {
-	$('#tab_logic').each(function(i, element) {
+	
+	$('#tab_logic tr').each(function(i, element) {
 		var html = $(this).html();
 		if(html!='')
 		{

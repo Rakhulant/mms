@@ -356,7 +356,7 @@ mysqli_select_db($con, 'mms');
 
                                             <tr>
                                                 <td><a href="" class="text-primary fw-bold"><?php echo ($row4['name']); ?></a></td>
-                                                <td>$<?php echo ($row4['s_price']); ?></td>
+                                                <td>₹<?php echo ($row4['s_price']); ?></td>
                                                 <td class="fw-bold"><?php echo ($row4['quantity']); ?></td>
                                             </tr>
                                         <?php
