@@ -66,7 +66,7 @@ $res3 = mysqli_query($con, $q3);
           <span class="d-block p-2 text-bg-dark">Phone : <?php
                                                           echo $row1['phone'] ?> </span>
           <span class="d-block p-2 text-bg-dark">Email : <?php
-                                                          echo $username ?> </span>
+                                                          echo $username; ?> </span>
           <span class="d-block p-2 text-bg-primary">List of shops : </span>
           <?php
 

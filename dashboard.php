@@ -49,7 +49,7 @@ mysqli_select_db($con, 'mms');
 
     <?php
     $user = $_SESSION['username'];
-    $q = "select * from shop where manager_id='$user'";
+    $q = "select * from shop where manager_id='$user' ";
     $res = mysqli_query($con, $q);
     $row = mysqli_fetch_assoc($res);
 
@@ -63,13 +63,13 @@ mysqli_select_db($con, 'mms');
     $_SESSION['shop_id'] = $shopid;
     $q2 = "select * from product natural join inventory where shop_id='$shopid'";
     $res2 = mysqli_query($con, $q2);
-    $q1 = "select * from transaction t where t.shop_id IN(select shop_id from shop where name='$hesaru') order by t.transaction_id desc";
+    $q1 = "select * from transaction t where t.shop_id IN(select shop_id from shop where manager_id='$user') order by t.transaction_id desc";
     $res1 = mysqli_query($con, $q1);
 
     $q4 = "select * from goods where shop_id = (select shop_id from shop where name='$hesaru')";
     $res4 = mysqli_query($con, $q4);
 
-    $q5 = "select distinct(customer_name) from transaction t where t.shop_id IN(select shop_id from shop where name='$hesaru')";
+    $q5 = "select distinct(customer_name) from transaction t where t.shop_id IN(select shop_id from shop where manager_id='$user')";
     $res5 = mysqli_query($con, $q5);
     ?>
 
