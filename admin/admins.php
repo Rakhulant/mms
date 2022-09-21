@@ -81,7 +81,7 @@ $res2 = mysqli_query($con, $q2);
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li class="dropdown"><a href="#"><span>Manupulate users</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>Manipulate users</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="/Mms/adduser.php">Add users</a></li>
               <li><a href="/Mms/displayusers.php">View users</a></li>
@@ -179,7 +179,7 @@ $res2 = mysqli_query($con, $q2);
                   ?>
                   <form method="POST" action="/Mms/editShop.php">
                     <input name="shopid" type="hidden" value="<?php echo $row2['shop_id']; ?>">
-                  <li class="list-group-item"><?php echo $row2['name']; ?><button type="submit" style="display:flex;float:right;" class="btn btn-primary">Edit</button></li>
+                  <li class="list-group-item" style="height:56px;"><?php echo $row2['name']; ?><button type="submit" style="display:flex;float:right;margin:auto" class="btn btn-primary">Edit</button></li>
                   </form>
                   <?php
                 }
