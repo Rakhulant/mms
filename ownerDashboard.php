@@ -77,6 +77,31 @@ mysqli_select_db($con, 'mms');
 
     $q5 = "select distinct(customer_name) from transaction t where t.shop_id IN(select shop_id from shop where name='$hesaru')";
     $res5 = mysqli_query($con, $q5);
+
+
+
+    $q6 = "select count(*) from transaction group by datee order by datee desc;";
+    $res6 = mysqli_query($con, $q6);
+    $vals1 = mysqli_fetch_array($res6);
+    while($row6 = mysqli_fetch_row($res6)) {
+        $vals2[] = (int)$row6[0];
+    }
+
+    $q7 = "select sum(quantity) from transaction group by datee";
+    $res7 = mysqli_query($con, $q7);
+    while($row7 = mysqli_fetch_row($res7)) {
+        $vals3[] = (int)$row7[0];
+    }
+
+    $q8 = "select count(customer_name) from transaction group by datee";
+    $res8 = mysqli_query($con, $q8);
+    while($row8 = mysqli_fetch_row($res8)) {
+        $vals4[] = (int)$row8[0];
+    }
+
+    $q9 = "select sum(quantity) from transaction";
+    $res9 = mysqli_query($con, $q9);
+    $val1 = (int)mysqli_fetch_row($res9)[0];
     ?>
 
 
@@ -189,7 +214,7 @@ mysqli_select_db($con, 'mms');
                       <i class="bi bi-currency-dollar"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>$3,264</h6>
+                      <h6>₹<?php echo json_encode($val1)?></h6>
 
                     </div>
                   </div>
@@ -227,25 +252,25 @@ mysqli_select_db($con, 'mms');
             <div class="col-12">
               <div class="card">
 
-
                 <div class="card-body">
-                  <h5 class="card-title">Reports <span>/Today</span></h5>
+                  <h5 class="card-title">Reports <span>/This Month</span></h5>
 
                   <!-- Line Chart -->
                   <div id="reportsChart"></div>
 
                   <script>
+                    console.log('<?php echo json_encode($vals2)?>')
                     document.addEventListener("DOMContentLoaded", () => {
                       new ApexCharts(document.querySelector("#reportsChart"), {
                         series: [{
                           name: 'Sales',
-                          data: [31, 40, 280, 5, 40, 400, 200],
+                          data: <?php echo json_encode($vals2)?>,
                         }, {
                           name: 'Revenue',
-                          data: [11, 32, 45, 32, 34, 52, 41]
+                          data: <?php echo json_encode($vals3)?>,
                         }, {
                           name: 'Customers',
-                          data: [15, 11, 32, 18, 9, 24, 11]
+                          data: <?php echo json_encode($vals4)?>
                         }],
                         chart: {
                           height: 350,
