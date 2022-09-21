@@ -100,7 +100,7 @@ mysqli_select_db($con, 'mms');
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                         <button class="btn btn-primary m-5" onclick="location.href = 'bill.php';">Generate Bill</button>
-                        <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                        <img src="1698.jpg" alt="Profile" class="rounded-circle">
 
                         <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $row3['name'] ?></span>
                     </a><!-- End Profile Iamge Icon -->
@@ -121,10 +121,15 @@ mysqli_select_db($con, 'mms');
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="login.php">
-                                <i class="bi bi-box-arrow-right"></i>
-                                <span>Sign Out</span>
-                            </a>
+                        <form method="POST" action="login.php">
+        <input type="hidden" value="logout" name="type">
+     
+              <a class="dropdown-item d-flex align-items-center" >
+                
+                 <button style="margin: auto;" class="btn center" type="submit" class="btn btn-primary" > LOG OUT </button>
+     
+              </a>
+              </form>
                         </li>
 
                     </ul><!-- End Profile Dropdown Items -->

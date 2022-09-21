@@ -150,7 +150,7 @@ body {
             header('location:dashboard.php');
           }
           else if($store=='owner'){
-            header('location:owner.php');
+            header('location:ownerDashboard.php');
           }
           else if($store=='floor_manager'){
             header('location:floor.php');
