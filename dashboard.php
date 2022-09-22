@@ -114,22 +114,22 @@ mysqli_select_db($con, 'mms');
                             <hr class="dropdown-divider">
                         </li>
 
-                       
+
 
                         <li>
                             <hr class="dropdown-divider">
                         </li>
 
                         <li>
-                        <form method="POST" action="login.php">
-        <input type="hidden" value="logout" name="type">
-     
-              <a class="dropdown-item d-flex align-items-center" >
-                
-                 <button style="margin: auto;" class="btn center" type="submit" class="btn btn-primary" > LOG OUT </button>
-     
-              </a>
-              </form>
+                            <form method="POST" action="login.php">
+                                <input type="hidden" value="logout" name="type">
+
+                                <a class="dropdown-item d-flex align-items-center">
+
+                                    <button style="margin: auto;" class="btn center" type="submit" class="btn btn-primary"> LOG OUT </button>
+
+                                </a>
+                            </form>
                         </li>
 
                     </ul><!-- End Profile Dropdown Items -->
@@ -159,7 +159,7 @@ mysqli_select_db($con, 'mms');
                 <div class="col-xxl-4 col-md-6">
                     <div class="card info-card sales-card">
 
-                      
+
 
                         <div class="card-body">
                             <h5 class="card-title">Sales <span>| This Month</span></h5>
@@ -182,7 +182,7 @@ mysqli_select_db($con, 'mms');
                 <div class="col-xxl-4 col-md-6">
                     <div class="card info-card revenue-card">
 
-                        
+
 
                         <div class="card-body">
                             <h5 class="card-title">Revenue <span>| This Month</span></h5>
@@ -233,18 +233,7 @@ mysqli_select_db($con, 'mms');
                         <div class="col-12">
                             <div class="card recent-sales overflow-auto">
 
-                                <div class="filter">
-                                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                        <li class="dropdown-header text-start">
-                                            <h6>Filter</h6>
-                                        </li>
-
-                                        <li><a class="dropdown-item" href="#">Today</a></li>
-                                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                                        <li><a class="dropdown-item" href="#">This Year</a></li>
-                                    </ul>
-                                </div>
+                                
 
                                 <div class="card-body">
                                     <h5 class="card-title">Recent Sales <span>| Today</span></h5>
@@ -264,17 +253,17 @@ mysqli_select_db($con, 'mms');
                                             while ($row1 = mysqli_fetch_array($res1)) {
                                             ?>
                                                 <tr>
-                                                <th scope="row"><a href="">#<?php echo $row1['transaction_id'] ?></a></th>
-                                                <td><?php echo $row1['customer_name'] ?></td>
-                                                <td><a href="#" class="text-primary">Product: <?php echo $row1['product_id'] ?></a></td>
-                                                <td><?php echo $row1['quantity'] ?></td>
+                                                    <th scope="row"><a href="">#<?php echo $row1['transaction_id'] ?></a></th>
+                                                    <td><?php echo $row1['customer_name'] ?></td>
+                                                    <td><a href="#" class="text-primary">Product: <?php echo $row1['product_id'] ?></a></td>
+                                                    <td><?php echo $row1['quantity'] ?></td>
 
-                                            </tr>
+                                                </tr>
                                             <?php
                                             }
                                             ?>
 
-                                            
+
                                         </tbody>
                                     </table>
 
@@ -295,18 +284,7 @@ mysqli_select_db($con, 'mms');
                     <div class="col-12">
                         <div class="card top-selling overflow-auto">
 
-                            <div class="filter">
-                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                    <li class="dropdown-header text-start">
-                                        <h6>Filter</h6>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="#">Today</a></li>
-                                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                                </ul>
-                            </div>
+                            
 
                             <div class="card-body pb-0">
                                 <h5 class="card-title">Inventory </h5>
@@ -336,6 +314,12 @@ mysqli_select_db($con, 'mms');
 
                                     </tbody>
                                 </table>
+
+
+                                <form method="POST" action="editInventory.php" style="margin: 10px auto; ">
+                                    <input type="hidden" value="<?php echo $row['shop_id']; ?>" name="shopid" style="align:center">
+                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                </form>
 
                             </div>
 
